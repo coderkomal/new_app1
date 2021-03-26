@@ -10,37 +10,24 @@ let studentStateData = [
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
 
- const [selectedNames,setSelectedNames] =useState([])
-  
-  
+  const [selectedNames, setSelectedNames] = useState([]);
 
   const selectSingle = (event, id) => {
-    studentState.map((item) => {
-      if (item.id === id) {
-        setStudentState(
-          studentState.map((data) => {
-            if (id === data.id) {
-              data.select = event;
-            }
-            return data;
-          })
-        );
-      }
-    });
-   
-   
-    let selectedPersons = studentState.filter(item=>item.select===true)
-    
-    
-    setSelectedNames(selectedPersons)
-    
-    
-    
-   
-    console.log(selectedNames)
+    setStudentState(
+      studentState.map((data) => {
+        if (id === data.id) {
+          data.select = event;
+        }
+        return data;
+      })
+    );
+
+    let selectedPersons = studentState.filter((item) => item.select === true);
+
+    setSelectedNames(selectedPersons);
+
+    console.log(selectedNames);
   };
-  
-  
 
   const renderItemAll = ({ item, index }) => {
     return (
@@ -56,19 +43,16 @@ const App = () => {
       </>
     );
   };
-  
-   const renderItemSelected = ({ item, index }) => {
+
+  const renderItemSelected = ({ item, index }) => {
     return (
       <>
         <View style={styles.checkboxContainer}>
-          
           <Text style={styles.label}>{item.firstname}</Text>
         </View>
       </>
     );
   };
-  
-  
 
   return (
     <View style={styles.container}>
@@ -77,15 +61,14 @@ const App = () => {
         renderItem={renderItemAll}
         keyExtractor={(item) => item.id}
       />
-      
-      <Text style={styles.container} >Selected Contacts</Text>
-      
-       <FlatList
+
+      <Text style={styles.container}>Selected Contacts</Text>
+
+      <FlatList
         data={selectedNames}
         renderItem={renderItemSelected}
         keyExtractor={(item) => item.id}
       />
-    
     </View>
   );
 };
