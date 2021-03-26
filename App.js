@@ -39,7 +39,7 @@ const App = () => {
     
     
    
-    console.log(...selectedNames)
+    console.log(selectedNames)
   };
   
   
@@ -53,7 +53,7 @@ const App = () => {
             onValueChange={(event) => selectSingle(event, item.id)}
             style={styles.checkbox}
           />
-          <Text style={styles.label}>Do you like React Native?</Text>
+          <Text style={styles.label}>{item.firstname}</Text>
         </View>
       </>
     );
