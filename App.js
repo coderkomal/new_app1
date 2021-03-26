@@ -10,7 +10,7 @@ let studentStateData = [
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
 
- const selectedNames = []
+ const [selectedNames,setSelectedNames] =useState([])
   
   
 
@@ -32,9 +32,7 @@ const App = () => {
     let selectedPersons = studentState.filter(item=>item.select===true)
     
     
-    selectedPersons.map((person)=>{
-    selectedNames.push(person.firstname)
-    })
+    setSelectedNames(selectedPersons)
     
     
     
@@ -44,7 +42,7 @@ const App = () => {
   
   
 
-  const renderItem = ({ item, index }) => {
+  const renderItemAll = ({ item, index }) => {
     return (
       <>
         <View style={styles.checkboxContainer}>
@@ -58,12 +56,33 @@ const App = () => {
       </>
     );
   };
+  
+   const renderItemSelected = ({ item, index }) => {
+    return (
+      <>
+        <View style={styles.checkboxContainer}>
+          
+          <Text style={styles.label}>{item.firstname}</Text>
+        </View>
+      </>
+    );
+  };
+  
+  
 
   return (
     <View style={styles.container}>
       <FlatList
         data={studentState}
-        renderItem={renderItem}
+        renderItem={renderItemAll}
+        keyExtractor={(item) => item.id}
+      />
+      
+      <Text style={styles.container} >Selected Contacts</Text>
+      
+       <FlatList
+        data={selectedNames}
+        renderItem={renderItemSelected}
         keyExtractor={(item) => item.id}
       />
     
