@@ -3,12 +3,16 @@ import { CheckBox, Text, StyleSheet, View, FlatList } from 'react-native';
 
 let studentStateData = [
   { select: false, id: 1, firstname: 'Stone', lastname: 'cold', major: 'wwf' },
-  { select: false, id: 2, firstname: 'Stone', lastname: 'cold', major: 'wwf' },
-  { select: false, id: 3, firstname: 'Stone', lastname: 'cold', major: 'wwf' },
+  { select: false, id: 2, firstname: 'Max', lastname: 'cold', major: 'wwf' },
+  { select: false, id: 3, firstname: 'Willy', lastname: 'cold', major: 'wwf' },
 ];
 
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
+
+ const selectedNames = []
+  
+  
 
   const selectSingle = (event, id) => {
     studentState.map((item) => {
@@ -23,7 +27,19 @@ const App = () => {
         );
       }
     });
-    console.log(studentState.filter(item=>item.select===true))
+   
+   
+    let selectedPersons = studentState.filter(item=>item.select===true)
+    
+    
+    selectedPersons.map((person)=>{
+    selectedNames.push(person.firstname)
+    })
+    
+    
+    
+   
+    console.log(...selectedNames)
   };
   
   
@@ -50,6 +66,7 @@ const App = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
+    
     </View>
   );
 };
