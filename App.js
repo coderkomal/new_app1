@@ -57,13 +57,13 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-    //flatlists to show checkboxes
+
       <FlatList
         data={studentState}
         renderItem={renderItemAll}
         keyExtractor={(item) => item.id}
       />
-   //flatlists to display selected names
+
       <Text style={styles.container}>Selected Contacts</Text>
 
       <FlatList
