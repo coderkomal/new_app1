@@ -7,7 +7,7 @@ let studentStateData = [
   { select: false, id: "237vigjh8", firstname: 'Willy', lastname: 'cold', major: 'wwf' },
 ];
 
-const selectedId = []
+let selectedId = []
 
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
@@ -39,11 +39,12 @@ const App = () => {
 //       if(item.id===id) {
 //        item.select=event;
 //        if(event===true){
-//          selectedId.push(id) 
+//         
+//         selectedId = [...selectedId,id]
 //        }
 //        else{
 //          const index = selectedId.indexOf(id)
-//          selectedId.splice(index,1)
+//           selectedId = selectedId.filter((id)=>id!==item.id)
 //        }
 //       }
 //       console.log("selected",selectedId)
