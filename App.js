@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { CheckBox, Text, StyleSheet, View, FlatList } from 'react-native';
 
 let studentStateData = [
-  { select: false, id: 1, firstname: 'Stone', lastname: 'cold', major: 'wwf' },
-  { select: false, id: 2, firstname: 'Max', lastname: 'cold', major: 'wwf' },
-  { select: false, id: 3, firstname: 'Willy', lastname: 'cold', major: 'wwf' },
+  { select: false, id: '237vy6r88', firstname: 'Stone', lastname: 'cold', major: 'wwf' },
+  { select: false, id: '237vioj88', firstname: 'Max', lastname: 'cold', major: 'wwf' },
+  { select: false, id: "237vigjh8", firstname: 'Willy', lastname: 'cold', major: 'wwf' },
 ];
 
 const App = () => {
@@ -13,14 +13,25 @@ const App = () => {
   const [selectedNames, setSelectedNames] = useState([]);
 
   const selectSingle = (event, id) => {
-    setStudentState(
-      studentState.map((data) => {
-        if (id === data.id) {
-          data.select = event;
-        }
-        return data;
-      })
-    );
+    // const newArray = [...studentState]
+    //  newArray[index].select=event;
+    //  setStudentState(newArray)
+
+    const newArray = studentState.map((item,index) =>{
+      if(item.id===id) {
+       item.select=event;
+      }
+      return item
+    })
+    setStudentState(newArray)
+
+    //   setStudentState(studentState.map((item,index) =>{
+    //   if(item.id===id) {
+    //    item.select=event;
+    //   }
+    //   return item
+    // }))
+
 
     let selectedPersons = studentState.filter((item) => item.select === true);
 
