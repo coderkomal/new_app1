@@ -33,10 +33,6 @@ const App = () => {
     // }))
 
 
-    let selectedPersons = studentState.filter((item) => item.select === true);
-
-    setSelectedNames(selectedPersons);
-
 //      const updatedArray = studentState.map((item,index) =>{
 //       if(item.id===id) {
 //        item.select=event;
@@ -55,6 +51,14 @@ const App = () => {
 //     setStudentState([...updatedArray])
 
 //     setSelectedNames([...selectedId])
+    
+    
+  // for filteration selected contacts
+    
+     let selectedPersons = studentState.filter((item) => item.select === true);
+
+    setSelectedNames(selectedPersons);
+    
     
   };
  // for mapping of checkboxes
