@@ -43,7 +43,7 @@ const App = () => {
 //         selectedId = [...selectedId,id]
 //        }
 //        else{
-//          const index = selectedId.indexOf(id)
+//         
 //           selectedId = selectedId.filter((id)=>id!==item.id)
 //        }
 //       }
