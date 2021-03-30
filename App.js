@@ -7,6 +7,8 @@ let studentStateData = [
   { select: false, id: "237vigjh8", firstname: 'Willy', lastname: 'cold', major: 'wwf' },
 ];
 
+const selectedId = []
+
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
 
