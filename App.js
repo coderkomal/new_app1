@@ -28,7 +28,7 @@ const App = () => {
 
     console.log(selectedNames);
   };
-
+ // for mapping of checkboxes
   const renderItemAll = ({ item, index }) => {
     return (
       <>
@@ -44,6 +44,7 @@ const App = () => {
     );
   };
 
+  // for mapping of selected names
   const renderItemSelected = ({ item, index }) => {
     return (
       <>
@@ -56,12 +57,13 @@ const App = () => {
 
   return (
     <View style={styles.container}>
+    //flatlists to show checkboxes
       <FlatList
         data={studentState}
         renderItem={renderItemAll}
         keyExtractor={(item) => item.id}
       />
-
+   //flatlists to display selected names
       <Text style={styles.container}>Selected Contacts</Text>
 
       <FlatList
@@ -72,6 +74,9 @@ const App = () => {
     </View>
   );
 };
+
+
+//styles
 
 const styles = StyleSheet.create({
   container: {
