@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { CheckBox, Text, StyleSheet, View, FlatList } from 'react-native';
 
 let studentStateData = [
-  { select: false, id: '237vy6r88', firstname: 'Stone', lastname: 'cold', major: 'wwf' },
-  { select: false, id: '237vioj88', firstname: 'Max', lastname: 'cold', major: 'wwf' },
-  { select: false, id: "237vigjh8", firstname: 'Willy', lastname: 'cold', major: 'wwf' },
+  { select: false, id: 'Styuy567SS', firstname: 'Stone', lastname: 'cold', major: 'wwf' },
+  { select: false, id: 'Maxud677MM', firstname: 'Max', lastname: 'cold', major: 'wwf' },
+  { select: false, id: "Ws67876dWW", firstname: 'Willy', lastname: 'cold', major: 'wwf' },
 ];
 
 let selectedId = []
