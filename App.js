@@ -37,7 +37,25 @@ const App = () => {
 
     setSelectedNames(selectedPersons);
 
-    console.log(selectedNames);
+//      const updatedArray = studentState.map((item,index) =>{
+//       if(item.id===id) {
+//        item.select=event;
+//        if(event===true){
+//          selectedId.push(id) 
+//        }
+//        else{
+//          const index = selectedId.indexOf(id)
+//          selectedId.splice(index,1)
+//        }
+//       }
+//       console.log("selected",selectedId)
+//       return item
+//     })
+
+//     setStudentState([...updatedArray])
+
+//     setSelectedNames([...selectedId])
+    
   };
  // for mapping of checkboxes
   const renderItemAll = ({ item, index }) => {
