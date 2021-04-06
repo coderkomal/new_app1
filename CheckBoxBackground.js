@@ -42,7 +42,8 @@ const App = () => {
     const { item } = props;
 
     const backgroundStyle = {
-      backgroundColor: item.select ? "blue" : "skyblue"
+      backgroundColor: item.select ? "blue" : "skyblue",
+      color: item.select ? "white" : "black"
     };
 
     return (
@@ -50,7 +51,7 @@ const App = () => {
         onPress={() => selectSingle(item.id)}
         style={[styles.item, backgroundStyle]}
       >
-        <Text style={[styles.title]}>{item.firstname}</Text>
+        <Text style={[styles.title, backgroundStyle]}>{item.firstname}</Text>
       </TouchableOpacity>
     );
   };
@@ -68,7 +69,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    width: 160
   },
   item: {
     padding: 20,
@@ -77,8 +79,7 @@ const styles = StyleSheet.create({
   },
   title: {
     flex: 1,
-    fontSize: 32,
-    justifyContent: "center"
+    fontSize: 32
   }
 });
 
