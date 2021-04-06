@@ -12,23 +12,17 @@ let studentStateData = [
   {
     select: false,
     id: "Styuy567SS",
-    firstname: "Stone",
-    lastname: "cold",
-    major: "wwf"
+    firstname: "Stone"
   },
   {
     select: false,
     id: "Maxud677MM",
-    firstname: "Max",
-    lastname: "cold",
-    major: "wwf"
+    firstname: "Max"
   },
   {
     select: false,
     id: "Ws67876dWW",
-    firstname: "Willy",
-    lastname: "cold",
-    major: "wwf"
+    firstname: "Willy"
   }
 ];
 
