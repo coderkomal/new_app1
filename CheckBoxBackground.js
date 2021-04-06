@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   FlatList,
+
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -32,16 +33,7 @@ let studentStateData = [
   },
 ];
 
-const Item = ({ item, selectSingle }) => {
 
-  
-  return(
-  <TouchableOpacity onPress = {() => selectSingle(item.id)} style={[styles.item, {backgroundColor:item.select?"blue":"skyblue"}]}>
-    <Text style={[styles.title]}>{item.firstname}</Text>
-
-  </TouchableOpacity>
-)
-};
 
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
@@ -58,13 +50,10 @@ const App = () => {
 
   const renderItem = ({ item }) => {
 
-
     return (
-      <Item
-        item={item}
-        selectSingle={selectSingle}
-       
-      />
+      <TouchableOpacity onPress = {() => selectSingle(item.id)} style={[styles.item, {backgroundColor:item.select?"blue":"skyblue"}]}>
+      <Text style={[styles.title]}>{item.firstname}</Text>
+    </TouchableOpacity>
     );
   };
 
