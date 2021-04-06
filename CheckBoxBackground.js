@@ -39,7 +39,8 @@ const App = () => {
     setStudentState(newArray);
   };
 
-  const renderItem = ({ item }) => {
+  const renderItem = (props) => {
+    const { item } = props;
     return (
       <TouchableOpacity
         onPress={() => selectSingle(item.id)}
@@ -66,8 +67,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0
+    flex: 1
   },
   item: {
     padding: 20,
