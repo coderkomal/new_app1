@@ -1,7 +1,7 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
-  CheckBox,
+
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -33,23 +33,13 @@ let studentStateData = [
   },
 ];
 
-const Item = ({ item, onPress, selectSingle, backgroundColor, textColor }) => {
+const Item = ({ item, selectSingle }) => {
 
-console.log(backgroundColor)
   
-
- const [backgroundColor1,setBackgroundColor1] = useState(backgroundColor)
-
-
-
   return(
-  <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-    <Text style={[styles.title, textColor]}>{item.firstname}</Text>
-    <CheckBox
-      value={item.select}
-      onValueChange={(event) => selectSingle(event, item.id)}
-      style={styles.checkbox}
-    />
+  <TouchableOpacity onPress = {() => selectSingle(item.id)} style={[styles.item, {backgroundColor:item.select?"blue":"skyblue"}]}>
+    <Text style={[styles.title]}>{item.firstname}</Text>
+
   </TouchableOpacity>
 )
 };
@@ -57,10 +47,10 @@ console.log(backgroundColor)
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
 
-  const selectSingle = (event, id) => {
-    const newArray = studentState.map((item, index) => {
+  const selectSingle = ( id) => {
+    const newArray = studentState.map((item) => {
       if (item.id === id) {
-        item.select = event;
+        item.select = !item.select ;
       }
       return item;
     });
@@ -68,15 +58,13 @@ const App = () => {
   };
 
   const renderItem = ({ item }) => {
-    const backgroundColor = item.select === true ? '#6e3b6e' : '#f9c2ff';
-    const color = item.select === true ? 'white' : 'black';
+
 
     return (
       <Item
         item={item}
         selectSingle={selectSingle}
-        backgroundColor={{ backgroundColor }}
-        textColor={{ color }}
+       
       />
     );
   };
