@@ -1,47 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   FlatList,
-
   SafeAreaView,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
-} from 'react-native';
+  TouchableOpacity
+} from "react-native";
 
 let studentStateData = [
   {
     select: false,
-    id: 'Styuy567SS',
-    firstname: 'Stone',
-    lastname: 'cold',
-    major: 'wwf',
+    id: "Styuy567SS",
+    firstname: "Stone",
+    lastname: "cold",
+    major: "wwf"
   },
   {
     select: false,
-    id: 'Maxud677MM',
-    firstname: 'Max',
-    lastname: 'cold',
-    major: 'wwf',
+    id: "Maxud677MM",
+    firstname: "Max",
+    lastname: "cold",
+    major: "wwf"
   },
   {
     select: false,
-    id: 'Ws67876dWW',
-    firstname: 'Willy',
-    lastname: 'cold',
-    major: 'wwf',
-  },
+    id: "Ws67876dWW",
+    firstname: "Willy",
+    lastname: "cold",
+    major: "wwf"
+  }
 ];
-
-
 
 const App = () => {
   const [studentState, setStudentState] = useState(studentStateData);
 
-  const selectSingle = ( id) => {
+  const selectSingle = (id) => {
     const newArray = studentState.map((item) => {
       if (item.id === id) {
-        item.select = !item.select ;
+        item.select = !item.select;
       }
       return item;
     });
@@ -49,11 +46,16 @@ const App = () => {
   };
 
   const renderItem = ({ item }) => {
-
     return (
-      <TouchableOpacity onPress = {() => selectSingle(item.id)} style={[styles.item, {backgroundColor:item.select?"blue":"skyblue"}]}>
-      <Text style={[styles.title]}>{item.firstname}</Text>
-    </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => selectSingle(item.id)}
+        style={[
+          styles.item,
+          { backgroundColor: item.select ? "blue" : "skyblue" }
+        ]}
+      >
+        <Text style={[styles.title]}>{item.firstname}</Text>
+      </TouchableOpacity>
     );
   };
 
@@ -71,16 +73,16 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0
   },
   item: {
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   title: {
-    fontSize: 32,
-  },
+    fontSize: 32
+  }
 });
 
 export default App;
