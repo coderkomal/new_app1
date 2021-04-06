@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   FlatList,
   SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity
@@ -41,13 +40,15 @@ const App = () => {
 
   const renderItem = (props) => {
     const { item } = props;
+
+    const backgroundStyle = {
+      backgroundColor: item.select ? "blue" : "skyblue"
+    };
+
     return (
       <TouchableOpacity
         onPress={() => selectSingle(item.id)}
-        style={[
-          styles.item,
-          { backgroundColor: item.select ? "blue" : "skyblue" }
-        ]}
+        style={[styles.item, backgroundStyle]}
       >
         <Text style={[styles.title]}>{item.firstname}</Text>
       </TouchableOpacity>
@@ -75,7 +76,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 16
   },
   title: {
-    fontSize: 32
+    flex: 1,
+    fontSize: 32,
+    justifyContent: "center"
   }
 });
 
